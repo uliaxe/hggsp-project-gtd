@@ -1,42 +1,43 @@
-# Analyse des Données de Conflit en Irak et Syrie (2013-2019)
+# Analyse Géopolitique de la Base de Données sur le Terrorisme Mondial (GTD)
 
-Ce projet applique des méthodes d'analyse de données (Data Science) pour étudier les dynamiques du conflit en Irak et en Syrie, en se concentrant sur la période 2013-2019.
+Ce projet utilise des techniques de Data Science (analyse de données, visualisation) pour explorer les tendances géopolitiques et tactiques du terrorisme mondial de 1970 à 2019.
 
-**Note importante :** Ce projet est une analyse académique et technique. Il n'exprime aucune opinion politique et n'a pas pour but de commenter la nature des acteurs impliqués, mais d'analyser quantitativement leurs modes d'action.
+## 1. Contexte Académique (HGGSP)
 
-## 1. Contexte Académique
+Ce travail s'inscrit dans une démarche liant la spécialité **HGGSP (Histoire-Géographie, Géopolitique et Sciences Politiques)** et l'analyse de données.
 
-Ce travail s'inscrit dans le cadre du programme de spécialité **Histoire-Géographie, Géopolitique et Sciences Politiques (HGGSP)** de Terminale.
-
-Il vise à explorer l'Axe 1 du **Thème 2 : "Faire la guerre, faire la paix"**, qui étudie :
-> "Le modèle de Clausewitz à l'épreuve des « guerres irrégulières » : d'Al Qaïda à Daech."
-
-**Objectif :** Utiliser les données pour analyser l'évolution d'un acteur non étatique (l'État Islamique, désigné "Islamic State" dans la source) afin de caractériser la nature de ses actions (guerre conventionnelle vs. guerre irrégulière/terrorisme) à travers son implantation territoriale et ses modes opératoires.
+L'objectif est d'utiliser un jeu de données quantitatives à grande échelle pour étudier concrètement des concepts clés du programme :
+* Les dynamiques des **"guerres irrégulières"** et des conflits asymétriques.
+* Le rôle des **acteurs non étatiques** dans les relations internationales.
+* L'évolution et la **spatialisation** (géographie) des zones de conflit et de tension.
 
 ## 2. Source des Données
 
-* **Source :** [ACLED (Armed Conflict Location & Event Data Project)](https://acleddata.com/)
-* **Période :** 1er janvier 2013 - 31 décembre 2019
-* **Zone :** Irak et Syrie
-* **Filtre :** Événements impliquant l'acteur "Islamic State".
+* **Source :** Global Terrorism Database (GTD)
+* **Auteur Officiel :** National Consortium for the Study of Terrorism and Responses to Terrorism (START)
+* **Accès :** [Kaggle Dataset (START-UMD/gtd)](https://www.kaggle.com/datasets/START-UMD/gtd)
+* **Période :** 1970 - 2019
 
-## 3. Méthodologie
+## 3. Axes d'Analyse
 
-Le projet (contenu dans les notebooks Jupyter ou scripts Python) suit 3 axes d'analyse :
+Le projet (contenu dans le notebook Jupyter) s'articule autour de trois axes d'analyse pour répondre à la problématique HGGSP.
 
-1.  **Analyse Temporelle :**
-    * Visualisation de l'évolution du nombre d'événements et de victimes dans le temps pour identifier les phases d'émergence, d'apogée ("proto-État") et de déclin.
+### Axe 1 : Analyse Temporelle (Quand ?)
+* **Question :** Y a-t-il une intensification du phénomène terroriste ?
+* **Méthode :** Visualiser l'évolution du nombre d'incidents et de victimes (`nkill`) par an (`iyear`).
+* **Objectif :** Identifier les grandes vagues, les pics d'activité et les tendances de fond.
 
-2.  **Analyse Spatiale :**
-    * Cartographie des événements (nuages de points et *heatmaps*) pour visualiser l'évolution du contrôle territorial et des "points chauds" du conflit.
+### Axe 2 : Analyse Spatiale (Où ?)
+* **Question :** Les "points chauds" (hotspots) du terrorisme se sont-ils déplacés ?
+* **Méthode :** Utiliser les colonnes `latitude` et `longitude` pour créer des cartes de chaleur (heatmaps) et des nuages de points.
+* **Objectif :** Visualiser la concentration géographique des incidents et son évolution par décennie (ex: 1980s vs 2010s).
 
-3.  **Analyse des Modes d'Action :**
-    * Analyse de la typologie des événements (ex: "Battles", "Explosions/Remote violence", "Violence against civilians").
-    * Visualisation de l'évolution de la *proportion* de ces tactiques pour observer le passage d'une logique de conquête à une logique de guérilla.
+### Axe 3 : Analyse Tactique (Comment ?)
+* **Question :** Les méthodes et les cibles ont-elles changé ?
+* **Méthode :** Analyser la fréquence des colonnes `attacktype1_txt` (type d'attaque) et `targtype1_txt` (type de cible).
+* **Objectif :** Identifier si les tactiques (ex: attentats à la bombe, prises d'otages) et les cibles (ex: civils, militaires) ont évolué.
 
 ## 4. Outils Techniques
 
 * **Langage :** Python
-* **Librairies principales :** Pandas (manipulation), Matplotlib / Seaborn (visualisation), Geopandas (analyse spatiale).
-
----
+* **Librairies :** Pandas (manipulation), Matplotlib / Seaborn (visualisation), Geopandas / Folium (cartographie).
